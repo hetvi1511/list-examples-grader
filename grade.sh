@@ -12,8 +12,9 @@ else
     exit 1
 fi
 
+rm -rf Tests
 mkdir Tests
-cp ./student-submission/ListExamples.java/ ./Tests
+cp ./student-submission/ListExamples.java ./Tests
 cp TestListExamples.java ./Tests
 cd Tests
 
