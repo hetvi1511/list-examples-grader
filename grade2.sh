@@ -19,7 +19,6 @@ cp ../lib ./
 pwd
 
 javac -cp ".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" *.java 
-# javac ListExamples.java 2>output.txt
 
 if [[ $? == "0" ]]
     then
@@ -29,6 +28,8 @@ else
     exit 1
     # cat output.txt
 fi
+
+javac ListExamples.java
 
 java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples > test-output.txt 2>runtime-error.txt
 cat runtime-error.txt
