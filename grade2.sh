@@ -15,19 +15,21 @@ else
 fi
 
 cp ../TestListExamples.java ./
-
+cp ../lib ./
 pwd
 
-javac -cp ".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" *.java 2>test-list-output.txt
-javac ListExamples.java 2>output.txt
+javac -cp ".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" *.java 
+# javac ListExamples.java 2>output.txt
 
-if [[ $? == "0"]]
-then
-    echo "Compile Successful"
+if [[ $? == "0" ]]
+    then
+        echo "Compile Successful"
 else
     echo "Error found"
-    cat output.txt
+    exit 1
+    # cat output.txt
 fi
 
-java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples > test-output.txt
+java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples > test-output.txt 2>runtime-error.txt
+cat runtime-error.txt
 cat test-output.txt
