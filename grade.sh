@@ -12,13 +12,11 @@ else
     exit 1
 fi
 
-rm -rf Tests
-mkdir Tests
-cp ./student-submission/ListExamples.java ./Tests
-cp TestListExamples.java ./Tests
-cd Tests
+rm -rf ListExamples.java
+rm -rf *.class
+cp ./student-submission/ListExamples.java ./
 
-javac ListExamples.java TestListExamples.java
+javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java
 
 if [[ $? -eq 0 ]]
     then
@@ -29,14 +27,14 @@ else
 fi
 
 # javac -cp "javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" *.java
-javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
-if [[ $? -eq 0 ]]
-    then 
-        echo "Compile success !"
-else
-    echo "Error ! Could not compile" > java-error.txt 1>&2
-    exit 1
-fi
+# javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
+# if [[ $? -eq 0 ]]
+#     then 
+#         echo "Compile success !"
+# else
+#     echo "Error ! Could not compile" > java-error.txt 1>&2
+#     exit 1
+# fi
 
 java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples
 if [[ $? -eq 0 ]]
