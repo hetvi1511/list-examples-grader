@@ -23,7 +23,7 @@ if [[ $? -eq 0]]
 then
     echo "Compile Success !"
 else
-    echo "Error" > javac-error.txt 1>&2
+    echo "Error ! Could not compile" > javac-error.txt 1>&2
     exit 1
 fi
 
@@ -32,7 +32,7 @@ if [[ $? -eq 0]]
 then 
     echo "Compile success !"
 else
-    echo "Error" > java-error.txt 1>&2
+    echo "Error ! Could not compile" > java-error.txt 1>&2
     exit 1
 fi
 
@@ -41,6 +41,6 @@ if [[ $? -eq 0]]
 then 
     echo "Run success"
 else
-    echo "Error" > java-error.txt 1>&2
+    echo "Error ! Could not run" > java-error.txt 1>&2
     exit 1
 fi
