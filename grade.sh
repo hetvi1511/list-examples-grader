@@ -28,7 +28,8 @@ else
     exit 1
 fi
 
-javac -cp "javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" *.java
+# javac -cp "javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" *.java
+javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
 if [[ $? -eq 0 ]]
     then 
         echo "Compile success !"
