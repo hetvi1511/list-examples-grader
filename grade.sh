@@ -4,7 +4,7 @@ rm -rf student-submission
 git clone $1 student-submission
 echo 'Finished cloning'
 
-if [[ -f "./student-submission/ListExamples.java"]]
+if [[ -f ./student-submission/ListExamples.java ]]
     then
         echo "File exists !"
 else
@@ -19,7 +19,7 @@ cd Tests
 
 javac ListExamples.java TestListExamples.java
 
-if [[ $? -eq 0]]
+if [[ $? -eq 0 ]]
     then
         echo "Compile Success !"
 else
@@ -28,7 +28,7 @@ else
 fi
 
 javac -cp "javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" *.java
-if [[ $? -eq 0]]
+if [[ $? -eq 0 ]]
     then 
         echo "Compile success !"
 else
@@ -37,7 +37,7 @@ else
 fi
 
 java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples
-if [[ $? -eq 0]]
+if [[ $? -eq 0 ]]
     then 
         echo "Run success"
 else
